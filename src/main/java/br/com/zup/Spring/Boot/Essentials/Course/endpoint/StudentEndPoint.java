@@ -1,7 +1,8 @@
 package br.com.zup.Spring.Boot.Essentials.Course.endpoint;
 
-import br.com.zup.awesome.model.Student;
-import br.com.zup.awesome.util.DateUtil;
+
+import br.com.zup.Spring.Boot.Essentials.Course.model.Student;
+import br.com.zup.Spring.Boot.Essentials.Course.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +14,11 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 @RestController
-@RequestMapping("student")
+@RequestMapping("students")
 public class StudentEndPoint {
 
     @Autowired
-    DateUtil dateUtil;
+     DateUtil dateUtil;
 
     @GetMapping("/list")
     public List<Student>listAll(){
