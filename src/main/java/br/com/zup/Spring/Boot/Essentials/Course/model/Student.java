@@ -14,7 +14,12 @@ public class Student {
         studentRepository();
     }
 
-    public Student(String márcio) {
+    public Student(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public Student() {
     }
 
    public int getId() {
@@ -34,7 +39,7 @@ public class Student {
     }
 
     private static void studentRepository(){
-        studentList = new ArrayList<>(asList(new Student("Márcio"), new Student("Aldilene")));
+        studentList = new ArrayList<>(asList(new Student("Márcio",1) , new Student("Aldilene",2)));
     }
 }
 
