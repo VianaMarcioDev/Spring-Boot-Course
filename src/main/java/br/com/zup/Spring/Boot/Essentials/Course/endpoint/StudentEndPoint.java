@@ -1,6 +1,7 @@
 package br.com.zup.Spring.Boot.Essentials.Course.endpoint;
 
 
+import br.com.zup.Spring.Boot.Essentials.Course.error.CustomErrorType;
 import br.com.zup.Spring.Boot.Essentials.Course.model.Student;
 import br.com.zup.Spring.Boot.Essentials.Course.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,9 @@ public class StudentEndPoint {
           student.setId(id);
           int index = studentList.indexOf(id);
           if (index == -1){
-              return new ResponseEntity<>(new )
+              return new ResponseEntity<>(new CustomErrorType("Student not found"), HttpStatus.NOT_FOUND);
           }
-
+            return new ResponseEntity<>(studentList.get(index), HttpStatus.OK);
 
 
 

@@ -1,10 +1,14 @@
 package br.com.zup.Spring.Boot.Essentials.Course.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.Arrays.asList;
 
+@Component
 public class Student {
 
     private String name;
@@ -40,6 +44,19 @@ public class Student {
 
     private static void studentRepository(){
         studentList = new ArrayList<>(asList(new Student("Márcio",1) , new Student("Aldilene",2)));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        Student student = (Student) o;
+        return getId() == student.getId() && Objects.equals(getName(), student.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getId());
     }
 }
 
